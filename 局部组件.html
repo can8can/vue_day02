@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <com1></com1>
+    <com2></com2>
+</div>
+<hr>
+<div id="main">
+    <com1></com1>
+    <com2></com2>
+</div>
+<com1></com1>
+<script src="js/vue.js"></script>
+<script>
+    let com1={
+        template:`<div>这是第一个组件</div>`
+    }
+    let com2={
+        template:`<div>这是第sna个组件</div>`
+    }
+    Vue.component("com1",com1);
+    // Vue.component("com2",com2);
+    new Vue({
+        el :"#app",
+        data:{},
+        components:{
+            "com2":com2,
+        },
+
+    })
+
+    new Vue({
+        el :"#main",
+        data:{},
+
+    })
+</script>
+</body>
+</html>

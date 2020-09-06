@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let app=(a,b,c)=>console.log(a+b+c);
+    app(1,2,3)
+
+    let app2=(a,b,c)=>{
+        console.log(a+b*c);
+        console.log(a-b*c);
+    }
+    app2(1,2,3)
+
+    let app3 = x =>console.log(x);
+    app3(5)
+
+    let app4 = (x,y) => x+y; //只有一条语句且是return，return可以省略
+    app4(9,3)
+
+    let app5 = () =>console.log("hello");
+    app5()
+
+</script>
+</body>
+</html>

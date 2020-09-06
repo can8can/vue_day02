@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <span id="span">{{count}}</span>
+    <input type="button" value="修改" @click="change">
+</div>
+<script src="js/vue.js"></script>
+<script>
+    // 在这一步创建了一个vue对象   初始化  运行  销毁
+    // 初始化阶段   数据赋值以前  数据赋值以后
+    new Vue({
+        el: "#app",
+        data: {
+            count: 40,
+        },
+        methods: {
+            change(){
+                this.count--;
+            }
+        },
+        // 1. 生命周期的第一个钩子函数，该函数在执行时vue实例仅完成了自身事件的绑定和生命周期函数初始化的工作，vue实例中还没有 data el methods等属性
+        beforeCreate: function () {
+            console.log("beforeCreate：" + this.count);
+        },
+        // 2. 第二个钩子函数  这个函数在执行时vue实例已经初始化了data属性 methods相关方法
+        created: function () {
+            console.log("created：" + this.count);
+        },
+        // 3. 第三个钩子函数 该钩子函数在执行时vue将el中指定作为范围作为模板编译
+        beforeMount: function () {
+            console.log("beforeMount：" + document.getElementById("span").innerText);
+        },
+        // 4. 该函数在执行时已经将数据渲染到了页面并且完成了页面数据的更新
+        mounted: function () {
+            console.log("mounted：" + document.getElementById("span").innerText);
+        },
+        // 5. 该函数在data发生数据变化时执行  这个执行仅仅是vue实例中数据变化但页面显示的依旧是原来的数据
+        beforeUpdate: function () {
+            console.log("beforeUpdate："+ this.count);
+            console.log("beforeUpdate: "+ document.getElementById("span").innerText);
+        },
+        // 6. 该函数在data发生数据变化时执行 页面中的数据与vue数据都已经更新完成了
+        updated: function () {
+            console.log("Update："+ this.count);
+            console.log("Update: "+ document.getElementById("span").innerText);
+        },
+        // 7.   该钩子函数执行时  vue实例中的data methods还没有销毁
+        beforeDestroy: function () {
+
+        },
+        // 8. 此函数执行时  vue实例已经被销毁了
+        destroyed: function () {
+
+        },
+    })
+</script>
+</body>
+</html>

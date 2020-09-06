@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="shi">
+    <input type="text" v-model="ge">
+<!--    <span>结果：{{shi*10 + + ge}}</span>-->
+    <span>结果：{{ result }}</span>
+
+    <hr>
+    <p @click="click_me">结果二：{{num}}</p>
+    <p>十位数{{s}}</p>
+    <p>个位数{{g}}</p>
+    <br>
+
+
+
+</div>
+<script src="js/vue.js"></script>
+<script>
+    new Vue({
+        el :"#app",
+        data : {
+            num: 96,
+            shi :"",
+            ge :"",
+            s:"",
+            g:"",
+        },
+        methods :{
+            click_me(){
+                this.num-=3;
+            }
+
+        },
+        computed :{
+            result(){
+                return parseInt(this.shi*10 + + this.ge);
+            }
+        },
+        watch: {
+            num(){
+                this.s=parseInt(this.num/10);
+                this.g=this.num%10;
+            }
+        }
+
+
+    })
+</script>
+</body>
+</html>

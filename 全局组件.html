@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <com></com>
+    <com></com>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    let com={
+        template:`<div>这是一个全局组件</div>`,
+    }
+        Vue.component("com",com)
+
+    new Vue({
+        el: "#app",
+        data: {},
+
+    })
+
+</script>
+</body>
+</html>

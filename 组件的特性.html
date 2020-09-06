@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <com></com>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    let com={
+        template:`<div>
+            欢迎来到这个组件
+            <span>
+                <input type="button" value="点我呀" @click="change">
+            </span>
+        </div>`,
+        data: function () {
+            return {
+                username:"李四",
+            }
+        },
+        methods: {
+            change(){
+                alert("干嘛")
+            }
+
+        },
+        created: function () {
+            alert("你你你")
+
+        }
+
+    }
+    Vue.component("com",com);
+
+    new Vue({
+        el:"#app",
+        data:{}
+    })
+
+</script>
+</body>
+</html>
